@@ -17,4 +17,4 @@ Il est souvent difficile pour les étudiants de centraliser leurs ressources et 
 - Assurer une interface fluide et moderne, avec des interactions en AJAX.
 
 ## 4. 🧩 Diagramme de classes 
-![Image](https://github.com/user-attachments/assets/b617817d-5e52-44ba-95f6-cf0095fe4a5c)
+
