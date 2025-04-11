@@ -17,13 +17,16 @@ Il est souvent difficile pour les étudiants de centraliser leurs ressources et 
 - Assurer une interface fluide et moderne, avec des interactions en AJAX.
 
 ## 4. 🧩 Diagramme de classes 
-![Image](https://github.com/user-attachments/assets/325e4327-93a6-4b9c-a147-606e15baf0b8)
+![Image](https://github.com/user-attachments/assets/37a8a3e3-482b-48f3-ad1f-79b70c8087b8)
 
 ## 5. 🗂️  Modèle conceptuel de la base généré
-![Image](https://github.com/user-attachments/assets/3b2c0fbe-9608-40c1-a0dc-0c66bd1fe04b)
+![Image](https://github.com/user-attachments/assets/fa2da44d-c466-4f07-962c-a096a36de9a8)
 
 ## 6. 🧮 Execution des tests dans la console
 
+![Image](https://github.com/user-attachments/assets/2ad52995-6b2b-4a06-a221-dd047ecf3d25)
+![Image](https://github.com/user-attachments/assets/e2ee86b2-b8ea-489c-ba5f-95c83ed6b4dc)
+![Image](https://github.com/user-attachments/assets/17bb863e-972d-4de7-bba9-24fbe34de114)
 ![Image](https://github.com/user-attachments/assets/7f339eb9-4eec-4ce3-bfd4-00be096e9d79)
 ![Image](https://github.com/user-attachments/assets/da864d1f-1123-4f51-a743-7e3d84dc1bed)
 ![Image](https://github.com/user-attachments/assets/6a8e08cb-9986-48d8-8193-1031b3fb3a6e)
