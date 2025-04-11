@@ -26,14 +26,17 @@ public class NoteCours {
     private Matiere matiere;
     @OneToMany(mappedBy = "note", fetch = FetchType.EAGER)
     private List<CommentaireNote> commentaires;
+    @ManyToOne
+    private Enseignant enseignant;
 
     public NoteCours() {
     }
 
-    public NoteCours(String titre, double contenu, Matiere matiere) {
+    public NoteCours(String titre, double contenu, Matiere matiere, Enseignant enseignant) {
         this.titre = titre;
         this.contenu = contenu;
         this.matiere = matiere;
+        this.enseignant = enseignant;
     }
 
     public int getId() {
@@ -74,6 +77,14 @@ public class NoteCours {
 
     public void setCommentaires(List<CommentaireNote> commentaires) {
         this.commentaires = commentaires;
+    }
+
+    public Enseignant getEnseignant() {
+        return enseignant;
+    }
+
+    public void setEnseignant(Enseignant enseignant) {
+        this.enseignant = enseignant;
     }
 
 }
