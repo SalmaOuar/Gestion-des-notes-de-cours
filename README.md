@@ -20,7 +20,7 @@ Il est souvent difficile pour les étudiants de centraliser leurs ressources et 
 ![Image](https://github.com/user-attachments/assets/37a8a3e3-482b-48f3-ad1f-79b70c8087b8)
 
 ## 5. 🗂️  Modèle conceptuel de la base généré
-![Image](https://github.com/user-attachments/assets/fa2da44d-c466-4f07-962c-a096a36de9a8)
+![Image](https://github.com/user-attachments/assets/b8bea44d-8530-4288-aaea-2cf4370eaf6a)
 
 ## 6. 🧮 Execution des tests dans la console
 
