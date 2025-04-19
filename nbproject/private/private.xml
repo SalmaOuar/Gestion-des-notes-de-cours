@@ -3,24 +3,41 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/test/TestNotesByEnseignant.java</file>
             <file>file:/C:/xampp/htdocs/GestionNotes/src/java/test/TestCommentairesByEnseignant.java</file>
-            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/test/Test.java</file>
-            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/servlet/LoginServlet.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/services/MatiereService.java</file>
             <file>file:/C:/xampp/htdocs/GestionNotes/src/java/dao/EnseignantDao.java</file>
-            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/dao/NoteCoursDao.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/controllers/MatiereServlet.java</file>
             <file>file:/C:/xampp/htdocs/GestionNotes/web/commentaires.jsp</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/services/IService.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/controllers/NoteServlet.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/entities/CommentaireNote.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/services/EnseignantService.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/entities/NoteCours.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/controllers/CommentaireServlet.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/entities/Admin.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/entities/CommentaireNotePK.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/web/WEB-INF/web.xml</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/services/NoteCoursService.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/test/TestNotesByEnseignant.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/test/Test.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/controllers/LoginServlet.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/entities/User.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/dao/NoteCoursDao.java</file>
             <file>file:/C:/xampp/htdocs/GestionNotes/web/matieres.jsp</file>
             <file>file:/C:/xampp/htdocs/GestionNotes/src/java/dao/UserDao.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/services/CommentaireNoteService.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/entities/Enseignant.java</file>
             <file>file:/C:/xampp/htdocs/GestionNotes/src/java/config/hibernate.cfg.xml</file>
-            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/entities/CommentaireNote.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/services/UserService.java</file>
             <file>file:/C:/xampp/htdocs/GestionNotes/web/notes.jsp</file>
             <file>file:/C:/xampp/htdocs/GestionNotes/src/java/dao/CommentaireNoteDao.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/services/AdminService.java</file>
             <file>file:/C:/xampp/htdocs/GestionNotes/web/enseignant/dashboard.jsp</file>
-            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/entities/CommentaireNotePK.java</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/src/java/entities/Matiere.java</file>
             <file>file:/C:/xampp/htdocs/GestionNotes/web/index.html</file>
             <file>file:/C:/xampp/htdocs/GestionNotes/src/java/test/TestSpecialite.java</file>
             <file>file:/C:/xampp/htdocs/GestionNotes/web/login.jsp</file>
+            <file>file:/C:/xampp/htdocs/GestionNotes/web/logout.jsp</file>
             <file>file:/C:/xampp/htdocs/GestionNotes/web/admin/dashboard.jsp</file>
         </group>
     </open-files>
