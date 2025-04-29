@@ -1,120 +1,104 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="entities.User" %>
 <%
     User user = (User) session.getAttribute("user");
-    if (user == null) {
+    if (user == null || !(user instanceof entities.Enseignant)) {
         response.sendRedirect("../login.jsp");
         return;
     }
 %>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Dashboard Enseignant</title>
-        <style>
-            body {
-                margin: 0;
-                font-family: 'Segoe UI', sans-serif;
-                background-color: #f3f6f9;
-            }
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau de bord Enseignant</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-image: url('../images/enseignant.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 120vh;
+        }
 
-            .header {
-                background-color: #2c3e50;
-                color: white;
-                padding: 15px 30px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
+        .header {
+            background-color: rgba(0, 33, 64, 0.95);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-            .header h1 {
-                font-size: 22px;
-                display: flex;
-                align-items: center;
-            }
+        .header h2 {
+            margin: 0;
+        }
 
-            .header img {
-                width: 32px;
-                margin-right: 10px;
-            }
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 100px;
+        }
 
-            .content {
-                padding: 40px;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-            }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
 
-            .card {
-                background-color: #ffffff;
-                border-radius: 10px;
-                padding: 20px 40px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-                margin-bottom: 20px;
-                display: flex;
-                align-items: center;
-                transition: 0.3s;
-            }
+        .card:hover {
+            transform: scale(1.05);
+        }
 
-            .card:hover {
-                transform: translateY(-3px);
-            }
+        .card img {
+            width: 60px;
+            margin-bottom: 15px;
+        }
 
-            .card img {
-                width: 48px;
-                margin-right: 20px;
-            }
+        .card a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            color: #0069d9;
+        }
 
-            .card a {
-                text-decoration: none;
-                font-size: 18px;
-                color: #3498db;
-                font-weight: bold;
-            }
+        .logout-btn {
+            padding: 12px 25px;
+            background-color: #d9534f;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-            .logout {
-                background-color: #e74c3c;
-                color: white;
-                border: none;
-                padding: 12px 20px;
-                border-radius: 6px;
-                cursor: pointer;
-                font-size: 15px;
-                display: flex;
-                align-items: center;
-                text-decoration: none;
-            }
+        .logout-btn:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>📘 Tableau de bord Enseignant</h2>
+        <span>Bienvenue Enseignant : <strong><%= user.getNom() %></strong></span>
+    </div>
 
-            .logout:hover {
-                background-color: #c0392b;
-            }
-
-            .logout img {
-                width: 18px;
-                margin-right: 8px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="header">
-            <h1>
-                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Enseignant">
-                Tableau de bord Enseignant
-            </h1>
-            <div>Bienvenue Enseignant : <strong><%= user.getNom()%></strong></div>
+    <div class="dashboard">
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Ajouter une note" />
+            <a href="../notes.jsp">Ajouter une note</a>
         </div>
-
-        <div class="content">
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Ajouter note">
-                <a href="../notes.jsp">Ajouter une note</a>
-            </div>
-
-            <a href="../logout.jsp" class="logout">
-                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828490.png" alt="logout">
-                Déconnexion
-            </a>
-        </div>
-    </body>
+        <form action="../logout.jsp" method="post">
+            <button type="submit" class="logout-btn">🚪 Déconnexion</button>
+        </form>
+    </div>
+</body>
 </html>

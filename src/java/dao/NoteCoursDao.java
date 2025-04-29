@@ -131,24 +131,57 @@ public class NoteCoursDao implements IDao<NoteCours> {
         }
         return noteCours;
     }
-    
+
     public List<NoteCours> findByEnseignant(Enseignant enseignant) {
-    Session session = null;
-    Transaction tx = null;
-    List<NoteCours> notes = null;
-    try {
-        session = HibernateUtil.getSessionFactory().openSession();
-        tx = session.beginTransaction();
-        notes = session.createQuery("from NoteCours where enseignant.id = :id")
-                       .setParameter("id", enseignant.getId())
-                       .list();
-        tx.commit();
-    } catch (HibernateException e) {
-        if (tx != null) tx.rollback();
-    } finally {
-        if (session != null) session.close();
+        Session session = null;
+        Transaction tx = null;
+        List<NoteCours> notes = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            notes = session.createQuery("from NoteCours where enseignant.id = :id")
+                    .setParameter("id", enseignant.getId())
+                    .list();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return notes;
     }
-    return notes;
-}
+
+    public List<NoteCours> findByEnseignantWithCommentaires(Enseignant ens) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        List<NoteCours> notes = null;
+
+        try {
+            tx = session.beginTransaction();
+
+            notes = session.createQuery(
+                    "SELECT DISTINCT n FROM NoteCours n "
+                    + "LEFT JOIN FETCH n.commentaires "
+                    + "JOIN FETCH n.matiere "
+                    + "WHERE n.enseignant.id = :id")
+                    .setParameter("id", ens.getId())
+                    .list();
+
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+
+        return notes;
+    }
 
 }

@@ -38,7 +38,7 @@ public class MatiereServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet MatiereServlet</title>");            
+            out.println("<title>Servlet MatiereServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet MatiereServlet at " + request.getContextPath() + "</h1>");
@@ -73,15 +73,28 @@ public class MatiereServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String nom = request.getParameter("nom");
+        String action = request.getParameter("action");
+        MatiereDao dao = new MatiereDao();
 
-        if (nom != null && !nom.isEmpty()) {
-            MatiereService service = new MatiereService();
-            Matiere matiere = new Matiere(nom);
-            service.create(new Matiere(nom));
+        if ("create".equals(action)) {
+            String nom = request.getParameter("nom");
+            dao.create(new Matiere(nom));
+            response.sendRedirect("matieres.jsp");
+
+        } else if ("update".equals(action)) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            String nom = request.getParameter("nom");
+            Matiere m = dao.findById(id);
+            m.setNom(nom);
+            dao.update(m);
+            response.sendRedirect("matieres.jsp");
+
+        } else if ("delete".equals(action)) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Matiere m = dao.findById(id);
+            dao.delete(m);
+            response.sendRedirect("matieres.jsp");
         }
-
-        response.sendRedirect("matieres.jsp");
     }
 
     /**

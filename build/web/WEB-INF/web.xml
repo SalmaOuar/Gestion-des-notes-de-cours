@@ -16,6 +16,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>controllers.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnseignantServlet</servlet-name>
+        <servlet-class>controllers.EnseignantServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NoteServlet</servlet-name>
         <url-pattern>/NoteServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnseignantServlet</servlet-name>
+        <url-pattern>/EnseignantServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

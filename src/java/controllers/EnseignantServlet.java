@@ -5,25 +5,22 @@
  */
 package controllers;
 
-import dao.CommentaireNoteDao;
-import dao.NoteCoursDao;
-import entities.CommentaireNote;
+import dao.EnseignantDao;
 import entities.Enseignant;
-import entities.NoteCours;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import services.CommentaireNoteService;
-import services.NoteCoursService;
 
 /**
  *
  * @author Yoga
  */
-public class CommentaireServlet extends HttpServlet {
+public class EnseignantServlet extends HttpServlet {
+
+    private final EnseignantDao dao = new EnseignantDao();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +39,10 @@ public class CommentaireServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CommentaireServlet</title>");
+            out.println("<title>Servlet EnseignantServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CommentaireServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EnseignantServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -77,25 +74,52 @@ public class CommentaireServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String contenu = request.getParameter("contenu");
-        String noteIdStr = request.getParameter("noteId");
+         try {
+        String action = request.getParameter("action");
 
-        try {
-            int noteId = Integer.parseInt(noteIdStr);
-            Enseignant enseignant = (Enseignant) request.getSession().getAttribute("user");
-            NoteCoursService noteService = new NoteCoursService();
-            CommentaireNoteService commentaireService = new CommentaireNoteService();
+        EnseignantDao dao = new EnseignantDao();
 
-            NoteCours note = noteService.findById(noteId);
-            CommentaireNote commentaire = new CommentaireNote(contenu, note, enseignant);
-            commentaireService.create(commentaire);
+        if ("create".equals(action)) {
+            String nom = request.getParameter("nom");
+            String email = request.getParameter("email");
+            String specialite = request.getParameter("specialite");
+            String password = request.getParameter("password");
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            Enseignant e = new Enseignant(nom, email, password, specialite);
+            dao.create(e);
+            response.sendRedirect("enseignants.jsp");
+
+        } else if ("update".equals(action)) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            String nom = request.getParameter("nom");
+            String email = request.getParameter("email");
+            String specialite = request.getParameter("specialite");
+            String password = request.getParameter("password");
+
+            Enseignant e = dao.findById(id);
+            if (e != null) {
+                e.setNom(nom);
+                e.setEmail(email);
+                e.setSpecialite(specialite);
+                if (password != null && !password.isEmpty()) {
+                    e.setMotDePasse(password);
+                }
+                dao.update(e);
+            }
+            response.sendRedirect("enseignants.jsp");
+
+        } else if ("delete".equals(action)) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Enseignant e = dao.findById(id);
+            if (e != null) {
+                dao.delete(e);
+            }
+            response.sendRedirect("enseignants.jsp");
         }
-
-        response.sendRedirect("notes.jsp");
-
+    } catch (Exception e) {
+        e.printStackTrace(); 
+        response.getWriter().println("Erreur : " + e.getMessage());
+    }
     }
 
     /**
